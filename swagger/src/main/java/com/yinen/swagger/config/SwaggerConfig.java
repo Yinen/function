@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.Profiles;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -43,7 +44,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .enable(flag)
                 .groupName("CYR")
-                .host("127.0.0.1")
+                //.host("127.0.0.1")
                 .select()
                 //RequestHandlerSelectors配置要扫描接口的方式
                 //basePackage指定要扫描的包

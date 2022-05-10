@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "token.EXPIRE_TIME",
+      "type": "java.lang.Integer",
+      "description": "Description for token.EXPIRE_TIME."
+    },
+    {
+      "name": "token.TOKEN_SECRET",
+      "type": "java.lang.String",
+      "description": "Description for token.TOKEN_SECRET."
+    }
+  ] }

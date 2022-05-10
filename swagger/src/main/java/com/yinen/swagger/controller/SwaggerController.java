@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 @ResponseBody
 public class SwaggerController {
@@ -17,11 +19,6 @@ public class SwaggerController {
                 "5、访问链接为http:\\localhost:8080/swagger-ui.html";
     }
     //只要我们的接口的返回值中存在实体类，这个实体类就会被扫描到swagger的model中
-    @ApiOperation("登录接口")
-    @PostMapping("/login")
-    public User login(@ApiParam("用户名") @RequestParam String name,@ApiParam("密码") @RequestParam String password){
-        return new User(name,password);
-    }
     @ApiOperation("获取用户信息接口")
     @GetMapping("/user")
     public User getUser(){
@@ -30,7 +27,7 @@ public class SwaggerController {
 
     @ApiOperation("修改用户信息接口")
     @RequestMapping(value = "/user",method = RequestMethod.PUT)
-    public String updateUser(@ApiParam("用户名") @RequestParam String name,@ApiParam("密码") @RequestParam String password){
+    public String updateUser(@ApiParam("用户名-密码") @RequestBody User user){
         return "200";
     }
 
