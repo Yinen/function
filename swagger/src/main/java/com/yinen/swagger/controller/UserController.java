@@ -32,6 +32,11 @@ import javax.annotation.PostConstruct;
   前端将 XMLHttpRequest 的 withCredentials 标志设置为 true，从而向服务器发送 Cookies。
   因为这是一个简单 GET 请求，所以浏览器不会对其发起“预检请求”。
   但是，如果服务器端的响应中未携带 Access-Control-Allow-Credentials: true，浏览器将不会把响应内容返回给请求的发送者。
+
+  在响应附带身份凭证的请求时：
+  服务器不能将 Access-Control-Allow-Origin 的值设为通配符“*”，而应将其设置为特定的域，如：Access-Control-Allow-Origin: https://example.com。
+  服务器不能将 Access-Control-Allow-Headers 的值设为通配符“*”，而应将其设置为首部名称的列表，如：Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+  服务器不能将 Access-Control-Allow-Methods 的值设为通配符“*”，而应将其设置为特定请求方法名称的列表，如：Access-Control-Allow-Methods: POST, GET
  */
 @CrossOrigin(origins = "http://localhost:8080",allowCredentials = "true")
 public class UserController  {
